@@ -1,6 +1,6 @@
 package com.vther.spring.mvc.hello.controller;
 
-import com.vther.spring.mvc.hello.model.Course;
+import com.vther.spring.mvc.hello.model.course.Course;
 import com.vther.spring.mvc.hello.service.CourseService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -58,11 +58,9 @@ public class CourseController {
   //本方法将处理 /courses/view3?courseId=123 形式的URL
   @RequestMapping("/view3")
   public String viewCourse3(HttpServletRequest request) {
-
     Integer courseId = Integer.valueOf(request.getParameter("courseId"));
     Course course = courseService.getCourseById(courseId);
     request.setAttribute("course", course);
-
     return "course_overview";
   }
 
@@ -99,7 +97,6 @@ public class CourseController {
           file.getInputStream(),
           new File("c:\\temp\\imooc\\", System.currentTimeMillis() + file.getOriginalFilename()));
     }
-
     return "success";
   }
 

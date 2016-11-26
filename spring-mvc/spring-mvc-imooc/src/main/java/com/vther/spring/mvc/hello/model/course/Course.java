@@ -1,12 +1,15 @@
-package com.vther.spring.mvc.hello.model;
+package com.vther.spring.mvc.hello.model.course;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Setter
-public class Course2 {
-
+@ToString
+public class Course {
   // 课程Id
   private Integer courseId;
   // 课程名称
@@ -24,6 +27,5 @@ public class Course2 {
   // 课程介绍
   private String descr;
   // 课程提纲
-  //	private List<Chapter> chapterList;
-
+  private List<Chapter> chapterList;
 }

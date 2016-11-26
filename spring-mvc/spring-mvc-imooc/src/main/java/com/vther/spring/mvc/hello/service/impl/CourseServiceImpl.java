@@ -1,7 +1,7 @@
 package com.vther.spring.mvc.hello.service.impl;
 
-import com.vther.spring.mvc.hello.model.Chapter;
-import com.vther.spring.mvc.hello.model.Course;
+import com.vther.spring.mvc.hello.model.course.Chapter;
+import com.vther.spring.mvc.hello.model.course.Course;
 import com.vther.spring.mvc.hello.service.CourseService;
 import org.springframework.stereotype.Service;
 

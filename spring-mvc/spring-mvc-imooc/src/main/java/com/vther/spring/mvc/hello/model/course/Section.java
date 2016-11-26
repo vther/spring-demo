@@ -1,4 +1,4 @@
-package com.vther.spring.mvc.hello.model;
+package com.vther.spring.mvc.hello.model.course;
 
 import lombok.Getter;
 import lombok.Setter;
