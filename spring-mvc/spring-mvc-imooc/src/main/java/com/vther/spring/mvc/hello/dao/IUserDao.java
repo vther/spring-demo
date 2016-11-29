@@ -12,6 +12,6 @@ public interface IUserDao {
 
     Long count();
 
-    @Select("SELECT id AS age,job_name AS name from job_info1 WHERE id = #{age}")
+    @Select(value = "SELECT id AS age,job_name AS name from job_info1 WHERE id = #{age}")
     UserVO findUser(int age);
 }
