@@ -265,7 +265,6 @@ public class PromotionTest {
         CriteriaQuery<Tuple> query = builder.createTupleQuery();
         Root<Promotion> root = query.from(Promotion.class);
         query.multiselect(root.get("promotionId").alias("id"), root.get("promotionName").alias("name"));
-
         List<Tuple> results = em.createQuery(query).getResultList();
         Integer id = (Integer) results.get(0).get("id");
         String last = (String) results.get(0).get("name");
