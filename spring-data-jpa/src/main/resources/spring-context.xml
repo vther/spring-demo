@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 加载外部配置文件 -->
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <!-- 声明C3P0 DataSource -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcUrl}"/>
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"/>
+        <property name="initialPoolSize" value="${initialPoolSize}"/>
+        <property name="maxPoolSize" value="${maxPoolSize}"/>
+    </bean>
+    <!-- 声明spring包扫描,负责service -->
+    <context:component-scan base-package="com.vther.spring.data.jpa.service"/>
+    <!-- 声明使用注解式事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!-- JPA,负责扫描dao -->
+    <jpa:repositories base-package="com.vther.spring.data.jpa.dao"
+                      repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+    <!-- 声明事物 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <!-- 声明实体工厂,负责entity -->
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <bean
+                    class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+                <property name="generateDdl" value="true"/>
+                <property name="showSql" value="true"/>
+                <property name="database" value="MYSQL"/>
+            </bean>
+        </property>
+        <!-- 使用DataSource -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 使用persistence里面定义的unitName，多个工厂的时候可以指定不同的 -->
+        <property name="persistenceUnitName" value="spring-data-jpa"/>
+        <!-- 集成persistence.xml开始 -->
+        <!-- persistence.xml中的实体扫描 -->
+        <property name="packagesToScan" value="com.vther.spring.data.jpa.entity"/>
+        <!-- persistence.xml中的框架属性 -->
+        <property name="jpaProperties">
+            <props>
+                <!-- 此处可用DataSource替代 -->
+                <!--<prop key="javax.persistence.jdbc.driver">com.mysql.jdbc.Driver</prop>
+                <prop key="javax.persistence.jdbc.url">jdbc:mysql://localhost:3306/spring-data-jpa</prop>
+                <prop key="javax.persistence.jdbc.user">root</prop>
+                <prop key="javax.persistence.jdbc.password">123456</prop> -->
+                <!--关于ddl-generation配置有四种方式：
+                    1）create-tables：将执行create table为每个表，如果该表已经存在，eclipselink将遵循默认的行为为特定数据库和JDBC驱动程序组合，
+                        在大多数情况下，抛出一个异常，而不是 创建表，现有的表被使用。
+                    2）create-or-extend-tables：创建表，如果表已经存在，则会添加任何缺少的列。
+                    3）drop-and-create-tables:删除所有的表，然后创建所有的表，如果遇到任何问题，将遵循默认的行为为特定数据库和JDBC驱动程序组合，然后继续下一句语句。
+                        这通常是在变化频繁或测试过程中使用的。
+                    4）none：默认值，不创建表，不创建schema。
+                -->
+                <!--https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging-->
+                <prop key="eclipselink.orm.throw.exceptions">true</prop>
+                <prop key="eclipselink.ddl-generation">create-or-extend-tables</prop>
+                <prop key="eclipselink.ddl-generation.output-mode">database</prop>
+                <prop key="eclipselink.weaving">false</prop>
+                <prop key="eclipselink.logging.parameters">true</prop>
+                <prop key="eclipselink.logging.logger">ServerLogger</prop>
+                <prop key="eclipselink.logging.exceptions">true</prop>
+            </props>
+        </property>
+        <!-- 集成persistence.xml结束 -->
+    </bean>
+</beans>
+
+
+
+
+
+
+
