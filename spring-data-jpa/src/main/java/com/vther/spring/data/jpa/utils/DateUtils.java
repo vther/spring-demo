@@ -17,7 +17,7 @@ public class DateUtils {
         return sdf.format(date);
     }
 
-    public Date stringToDate(String string) {
+    public static Date stringToDate(String string) {
         if (string == null) {
             return null;
         }

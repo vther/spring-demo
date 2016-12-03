@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class PromotionPlanInfoList {
+public class PromotionPlanInfo {
     private Integer planId;
     private String planName;
     private Integer planStatus;
@@ -23,10 +23,10 @@ public class PromotionPlanInfoList {
 
     private String promotionName;
 
-    public PromotionPlanInfoList() {
+    public PromotionPlanInfo() {
     }
 
-    public PromotionPlanInfoList(PromotionPlan promotionPlan, String promotionName) {
+    public PromotionPlanInfo(PromotionPlan promotionPlan, String promotionName) {
         BeanUtils.copyProperties(promotionPlan, this);
         this.promotionName = promotionName;
     }
