@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-mvc-imooc</module>
+        <module>springmvc-mybatis-master</module>
     </modules>
 
 

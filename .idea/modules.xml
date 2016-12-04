@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mvc/spring-mvc.iml" filepath="$PROJECT_DIR$/spring-mvc/spring-mvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mvc/spring-mvc-imooc/spring-mvc-imooc.iml" filepath="$PROJECT_DIR$/spring-mvc/spring-mvc-imooc/spring-mvc-imooc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mvc/springmvc-mybatis-master/springmvc-mybatis-master.iml" filepath="$PROJECT_DIR$/spring-mvc/springmvc-mybatis-master/springmvc-mybatis-master.iml" />
     </modules>
   </component>
 </project>

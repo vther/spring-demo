@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-data-jpa" />
         <module name="spring-mvc-imooc" />
+        <module name="springmvc-mybatis-master" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -15,6 +16,7 @@
       <module name="spring-demo" target="1.8" />
       <module name="spring-mvc" target="1.8" />
       <module name="spring-mvc-imooc" target="1.8" />
+      <module name="springmvc-mybatis-master" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
