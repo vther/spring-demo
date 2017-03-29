@@ -40,7 +40,7 @@ public class CustomerServiceImplPowerMockTest {
     @BeforeClass
     public static void initTestFixture() throws Exception {
         // Get the entity manager for the tests.
-        mEmf = Persistence.createEntityManagerFactory("JEE6Demo-Persistence");
+        mEmf = Persistence.createEntityManagerFactory("DBUNIT_Persistence");
         mEntityManager = mEmf.createEntityManager();
 
         Connection connection = ((EntityManagerImpl) (mEntityManager
