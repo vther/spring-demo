@@ -1,0 +1,6 @@
+CREATE TABLE t_dbunit_student (
+  ID bigint NOT NULL PRIMARY KEY ,
+  BIRTHDATE date NOT NULL,
+  FIRSTNAME varchar(35) NOT NULL,
+  LASTNAME varchar(35) DEFAULT NULL
+)
