@@ -25,7 +25,7 @@ public class SpringConfiguration {
 
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.DERBY).build();
+        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.DERBY).setName("testdb").build();
     }
 
     @Bean
@@ -39,6 +39,8 @@ public class SpringConfiguration {
         factory.getJpaPropertyMap().put("eclipselink.weaving","false");
         factory.setDataSource(dataSource());
         factory.afterPropertiesSet();
+        factory.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
+        factory.setPersistenceUnitName("DBUNIT_Persistence");
         return factory.getObject();
     }
 

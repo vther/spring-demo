@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface ICustomerService {
 
+    Customer checkBeforeSaveCustomer(Customer customer);
+
     void createCustomer(Customer customer);
 
     List<Customer> findAll();

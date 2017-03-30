@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
@@ -16,10 +18,20 @@ public class CustomerServiceImpl implements ICustomerService {
 
 
     private CustomerDao1 customerDao;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     public void setCustomerDao(CustomerDao1 customerDao) {
         this.customerDao = customerDao;
+    }
+
+    @Override
+    public Customer checkBeforeSaveCustomer(Customer customer) {
+        if (entityManager.find(Customer.class, customer.getCustomerId()) == null) {
+            return customerDao.save(customer);
+        }
+        return null;
     }
 
     @Transactional
