@@ -9,7 +9,7 @@
             <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:h2:mem:test;INIT=create schema if not exists test\;runscript from 'classpath:sql/student.sql'"/>
+                      value="jdbc:h2:mem:testDateBaseName;INIT=create schema if not exists test\;runscript from 'classpath:sql/student.sql'"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
             <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
