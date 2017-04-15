@@ -1,4 +1,4 @@
-package com.vther.spring.data.jpa.entity.work;
+package com.vther.spring.data.jpa.entity.converter;
 
 import com.vther.spring.data.jpa.type.PromotionStatusType;
 

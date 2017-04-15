@@ -1,4 +1,4 @@
-package com.vther.spring.data.jpa.entity.self;
+package com.vther.spring.data.jpa.entity.firststudy;
 
 import lombok.Getter;
 import lombok.Setter;

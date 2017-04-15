@@ -7,12 +7,15 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class DateUtils {
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+    private static final String PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     public static String dateToString(Date date) {
         if (date == null) {
             return null;
         }
+
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         return sdf.format(date);
     }
@@ -21,6 +24,7 @@ public class DateUtils {
         if (string == null) {
             return null;
         }
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             return sdf.parse(string);

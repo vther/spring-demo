@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0"
              xmlns="http://java.sun.com/xml/ns/persistence">
-    <persistence-unit name="DBUNIT_Persistence"
-                      transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="TEST_Persistence" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.vther.spring.data.jpa.entity.dbunit.Student</class>
+        <class>com.vther.spring.data.jpa.entity.memdbtest.Student</class>
         <properties>
             <property name="eclipselink.logging.level" value="FINEST"/>
-            <property name="eclipselink.target-database" value="DERBY"/>
-            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:testdb;create=true"/>
+            <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:h2:mem:test;INIT=create schema if not exists test\;runscript from 'classpath:sql/student.sql'"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
             <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
         </properties>

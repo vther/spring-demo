@@ -1,6 +1,6 @@
 package com.vther.spring.data.jpa.specification;
 
-import com.vther.spring.data.jpa.entity.self.Customer;
+import com.vther.spring.data.jpa.entity.firststudy.Customer;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;

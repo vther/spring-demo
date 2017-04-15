@@ -1,6 +1,6 @@
 package com.vther.spring.data.jpa.service;
 
-import com.vther.spring.data.jpa.entity.self.Customer;
+import com.vther.spring.data.jpa.entity.firststudy.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

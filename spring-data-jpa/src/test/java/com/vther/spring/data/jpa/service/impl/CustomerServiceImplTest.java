@@ -1,8 +1,8 @@
 package com.vther.spring.data.jpa.service.impl;
 
 import com.vther.spring.data.jpa.config.SpringConfiguration;
-import com.vther.spring.data.jpa.dao.CustomerDao1;
-import com.vther.spring.data.jpa.entity.self.Customer;
+import com.vther.spring.data.jpa.dao.CustomerDao;
+import com.vther.spring.data.jpa.entity.firststudy.Customer;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
@@ -34,7 +34,7 @@ public class CustomerServiceImplTest {
     private static Instant start;
     private CustomerServiceImpl customerService;
     @Autowired
-    private CustomerDao1 customerDao;
+    private CustomerDao customerDao;
     @PersistenceContext
     private EntityManager entityManager;
 

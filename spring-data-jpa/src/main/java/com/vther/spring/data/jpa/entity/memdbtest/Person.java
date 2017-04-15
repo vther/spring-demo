@@ -1,4 +1,4 @@
-package com.vther.spring.data.jpa.entity.dbunit;
+package com.vther.spring.data.jpa.entity.memdbtest;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

@@ -1,5 +1,6 @@
 package com.vther.spring.data.jpa.entity.work;
 
+import com.vther.spring.data.jpa.entity.converter.PromotionStatusConverter;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

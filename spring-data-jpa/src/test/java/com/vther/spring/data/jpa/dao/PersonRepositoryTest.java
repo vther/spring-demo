@@ -2,7 +2,7 @@ package com.vther.spring.data.jpa.dao;
 
 
 import com.vther.spring.data.jpa.config.SpringConfiguration;
-import com.vther.spring.data.jpa.entity.dbunit.Person;
+import com.vther.spring.data.jpa.entity.memdbtest.Person;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

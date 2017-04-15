@@ -1,4 +1,4 @@
-package com.vther.spring.data.jpa.entity.dbunit;
+package com.vther.spring.data.jpa.entity.memdbtest;
 
 
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.Date;
 @Setter
 @ToString
 @Entity
-@Table(name = "t_dbunit_student")
+@Table(name = "t_memdbtest_student")
 public class Student implements Serializable {
     private static final long serialVersionUID = -6146935825517747043L;
 

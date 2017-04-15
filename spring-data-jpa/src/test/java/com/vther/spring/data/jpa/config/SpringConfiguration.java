@@ -9,7 +9,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -25,7 +24,10 @@ public class SpringConfiguration {
 
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.DERBY).setName("testdb").build();
+        // 相比DERBY和HSQL，H2对语法的支持以及数据类型之类的与MYSQL的兼容都是最高，http://www.cnblogs.com/langtianya/p/3807573.html
+        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).setName("testdb")
+                .addScript("classpath:sql/student.sql")
+                .build();
     }
 
     @Bean
@@ -36,11 +38,11 @@ public class SpringConfiguration {
         final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("com.vther.spring.data.jpa.entity");
-        factory.getJpaPropertyMap().put("eclipselink.weaving","false");
+        factory.getJpaPropertyMap().put("eclipselink.weaving", "false");
         factory.setDataSource(dataSource());
         factory.afterPropertiesSet();
-        factory.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
-        factory.setPersistenceUnitName("DBUNIT_Persistence");
+        //factory.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
+        //factory.setPersistenceUnitName("TEST_Persistence");
         return factory.getObject();
     }
 

@@ -1,7 +1,7 @@
 package com.vther.spring.data.jpa.test;
 
-import com.vther.spring.data.jpa.dao.CustomerDao4;
-import com.vther.spring.data.jpa.entity.self.Customer;
+import com.vther.spring.data.jpa.dao.CustomerDao;
+import com.vther.spring.data.jpa.entity.firststudy.Customer;
 import com.vther.spring.data.jpa.service.ICustomerService;
 import com.vther.spring.data.jpa.specification.CustomerSpecification;
 import org.junit.Test;
@@ -22,10 +22,10 @@ public class CustomerDaoTest {
     @Resource
     private ICustomerService customerService;
     @Resource
-    private CustomerDao4 customerDao;
+    private CustomerDao customerDao;
 
     @Test
-    public void testCreateTables(){
+    public void testCreateTables() {
 
     }
 
@@ -44,7 +44,7 @@ public class CustomerDaoTest {
 
     @Test
     public void test22() {
-        List<Customer> customers = (List<Customer>) customerDao.findAll();
+        List<Customer> customers = customerDao.findAll();
         for (Customer cus : customers) {
             System.out.println(cus);
         }
