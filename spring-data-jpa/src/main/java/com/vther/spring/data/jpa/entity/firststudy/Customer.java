@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Cacheable(false)
 @Entity(name = "t_customer")
 public class Customer implements Serializable {
     private static final long serialVersionUID = 1212061447845144260L;
@@ -21,6 +22,9 @@ public class Customer implements Serializable {
     private String name;
 
     private Integer age;
+
+    @Version
+    private Integer version;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")

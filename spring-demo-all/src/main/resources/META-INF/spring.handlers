@@ -1,1 +1,2 @@
 http\://www.vthervther.com/schema/myns=com.vther.spring.samples.xml.MyNamespaceHandler
+http\://www.springframework.org/schema/tx=com.vther.spring.samples.annotation.MockTransactionalNamespaceHandler

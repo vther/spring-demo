@@ -28,7 +28,6 @@ import java.time.Instant;
 @ContextConfiguration(classes = {SpringConfiguration.class})
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
-
 public class CustomerServiceImplTest {
 
     private static Instant start;

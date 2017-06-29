@@ -21,7 +21,7 @@
         <property name="maxPoolSize" value="${maxPoolSize}"/>
     </bean>
     <!-- 声明spring包扫描,负责service -->
-    <context:component-scan base-package="com.vther.spring.data.jpa.service"/>
+    <context:component-scan base-package="com.vther.spring.data.jpa"/>
     <!-- 声明使用注解式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- JPA,负责扫描dao -->
