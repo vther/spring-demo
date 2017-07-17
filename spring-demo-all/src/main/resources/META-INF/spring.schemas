@@ -1,2 +1,1 @@
-http\://www.vthervther.com/schema/myns/myns.xsd=com/vther/spring/samples/xml/myns.xsd
-http\://www.vthervther.com/schema/tx/mockspring.xsd=com/vther/spring/samples/annotation/mock-transactional.xsd
+http\://www.vther.com/schema/vther/vther.xsd=com/vther/spring/samples/_01/extensible/xml/authoring/intro/student.xsd

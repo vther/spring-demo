@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:beans="http://www.springframework.org/schema/beans"
-            xmlns="http://www.vthervther.com/schema/myns"
-            targetNamespace="http://www.vthervther.com/schema/myns"
+            xmlns="http://www.vther.com/schema/vther"
+            targetNamespace="http://www.vther.com/schema/vther"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 
     <xsd:import namespace="http://www.springframework.org/schema/beans"/>
 
-    <xsd:element name="dateformat">
+    <xsd:element name="student">
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="beans:identifiedType">
-                    <xsd:attribute name="lenient" type="xsd:boolean"/>
-                    <xsd:attribute name="pattern" type="xsd:string" use="required"/>
+                    <xsd:attribute name="boy" type="xsd:boolean"/>
+                    <xsd:attribute name="name" type="xsd:string" use="required"/>
                 </xsd:extension>
             </xsd:complexContent>
         </xsd:complexType>
